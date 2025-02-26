@@ -1,8 +1,8 @@
-TLD := blumilk.localhost
+TLD := vama.localhost
 
 DOMAIN := *.${TLD}
 
-TRAEFIK_NETWORK_NAME := traefik-proxy-blumilk-local
+TRAEFIK_NETWORK_NAME := traefik-proxy-vama-local
 
 export COMPOSE_DOCKER_CLI_BUILD = 1
 export DOCKER_BUILDKIT = 1

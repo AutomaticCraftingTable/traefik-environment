@@ -1,6 +1,6 @@
-# Local Blumilk traefik environment
+# Local vama traefik environment
 
-This repo contains default Blumilk traefik configuration for local dev environment.
+This repo contains default vama traefik configuration for local dev environment.
 
 ## Usage
 
@@ -28,8 +28,8 @@ This will start a preconfigured traefik docker container. The container will occ
 
 Traefik dashboard will be available here:
 
-- http: http://traefik.blumilk.localhost
-- https: https://traefik.blumilk.localhost
+- http: http://traefik.vama.localhost
+- https: https://traefik.vama.localhost
 
 If you want to force HTTPS, uncomment this line: \
 `- "traefik.http.routers.traefik-dashboard-http-router.middlewares=https-redirect@file"`\
@@ -43,8 +43,8 @@ You can verify the environment is working with an included sample app `whoami`. 
 
 The sample app should be available here:
 
-- http: http://whoami.blumilk.localhost
-- https: https://whoami.blumilk.localhost
+- http: http://whoami.vama.localhost
+- https: https://whoami.vama.localhost
 
 Optionally, you can redirect all HTTP traffic to HTTPS. To do so, uncomment: \
 `- "traefik.http.routers.whoami-http-router.middlewares=https-redirect@file"` \
@@ -54,13 +54,13 @@ in `docker-compose.yaml`, and restart the container.
 
 Everything with `*.localhost` will be resolved to `127.0.0.1` so there's no need to edit `/etc/hosts` file.
 
-The environment uses domain names matching: `*.blumilk.localhost`.
+The environment uses domain names matching: `*.vama.localhost`.
 
 ## Certificates
 
-We're using *mkcert* to generate self-signed certificates to support https in local development. These certificates will cover a local domain ***.blumilk.localhost**.
+We're using *mkcert* to generate self-signed certificates to support https in local development. These certificates will cover a local domain ***.vama.localhost**.
 
-Keep in mind that *X.509 wildcard certificates* only go **one level deep**. So a domain `a.blumilk.localhost` is valid but `a.b.blumilk.localhost` is not.
+Keep in mind that *X.509 wildcard certificates* only go **one level deep**. So a domain `a.vama.localhost` is valid but `a.b.vama.localhost` is not.
 
 Certificates will be valid for **2 years**.
 
@@ -71,7 +71,7 @@ Certificates will be valid for **2 years**.
 
 ## Docker
 
-A docker network `traefik-proxy-blumilk-local` will be created if it does not exist.
+A docker network `traefik-proxy-vama-local` will be created if it does not exist.
 
 # Using the environment with your project
 

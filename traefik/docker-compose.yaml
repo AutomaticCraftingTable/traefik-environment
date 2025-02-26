@@ -1,23 +1,23 @@
 version: "3.8"
 
 networks:
-  traefik-proxy-blumilk-local:
+  traefik-proxy-vama-local:
     external: true
 
 services:
-  traefik-proxy-blumilk-local-service:
+  traefik-proxy-vama-local-service:
     image: traefik:v2.9.8
-    container_name: traefik-proxy-blumilk-local-container
+    container_name: traefik-proxy-vama-local-container
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.blumilk.environment=true"
+      - "traefik.vama.environment=true"
       # HTTP
       - "traefik.http.routers.traefik-dashboard-http-router.rule=Host(`${TRAEFIK_DASHBOARD_HOST_NAME}`)"
       - "traefik.http.routers.traefik-dashboard-http-router.service=api@internal"
       - "traefik.http.routers.traefik-dashboard-http-router.entrypoints=web"
     networks:
-      - traefik-proxy-blumilk-local
+      - traefik-proxy-vama-local
     ports:
       # web entrypoint
       - ${TRAEFIK_WEB_ENTRYPOINT_HOST_PORT}:80

@@ -18,9 +18,9 @@ providers:
         directory: "/etc/traefik/config/dynamic"
         watch: true
     docker:
-        network: "traefik-proxy-blumilk-local"
+        network: "traefik-proxy-vama-local"
         exposedByDefault: false
-        constraints: "Label(`traefik.blumilk.environment`,`true`)"
+        constraints: "Label(`traefik.vama.environment`,`true`)"
 
 experimental:
     http3: true

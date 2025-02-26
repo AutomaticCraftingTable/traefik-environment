@@ -11,7 +11,7 @@
 ```yaml
 # docker-compose.yml
 networks:
-    traefik-proxy-blumilk-local:
+    traefik-proxy-vama-local:
         external: true
 ```
 
@@ -22,7 +22,7 @@ networks:
 services:
     your-service:
         networks:
-            - traefik-proxy-blumilk-local
+            - traefik-proxy-vama-local
 ```
 
 3. Add labels to the docker compose service
@@ -33,19 +33,19 @@ services:
     your-service:
         labels:
             - "traefik.enable=true"
-            - "traefik.blumilk.environment=true"
+            - "traefik.vama.environment=true"
             # HTTP
-            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-http-router.entrypoints=web"
             # MIDDLEWARES
             #- "traefik.http.routers.NAME-http-router.middlewares=https-redirect@file"
             # HTTPS
-            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-https-router.entrypoints=websecure"
             - "traefik.http.routers.NAME-https-router.tls=true"        
 ```
 
-Where **NAME** should be replaced with your app name slug (no spaces) and **DOMAIN** should be replaced with an app name that you'll use in url, e.g.: if DOMAING is set to `my-app` then your app will be accessible with: `my-app.blumilk.localhost`.
+Where **NAME** should be replaced with your app name slug (no spaces) and **DOMAIN** should be replaced with an app name that you'll use in url, e.g.: if DOMAING is set to `my-app` then your app will be accessible with: `my-app.vama.localhost`.
 
 You can also use `.env` file to provide domain name, e.g.:
 
@@ -57,7 +57,7 @@ You can also use `.env` file to provide domain name, e.g.:
 ```dotenv
 # .env file
 
-YOUR_APP_HOST_NAME=my-app.blumilk.localhost
+YOUR_APP_HOST_NAME=my-app.vama.localhost
 ```
 
 ### Notes:
@@ -71,7 +71,7 @@ YOUR_APP_HOST_NAME=my-app.blumilk.localhost
 - "traefik.enable=false"
 ```
 
-you can also remove `traefik-proxy-blumilk-local` network.
+you can also remove `traefik-proxy-vama-local` network.
 
 - Traefik terminates TLS, so **internal traffic** to your container will be served as HTTP not HTTPS, sometimes this needs to set up trusted proxies in your app.
 
@@ -92,9 +92,9 @@ services:
     your-service:
         labels:
             - "traefik.enable=true"
-            - "traefik.blumilk.environment=true"
+            - "traefik.vama.environment=true"
             # HTTP
-            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-http-router.entrypoints=web"            
 ```
 
@@ -105,9 +105,9 @@ services:
     your-service:
         labels:
             - "traefik.enable=true"
-            - "traefik.blumilk.environment=true"
+            - "traefik.vama.environment=true"
             # HTTPS
-            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-https-router.entrypoints=websecure"
             - "traefik.http.routers.NAME-https-router.tls=true"  
 ```
@@ -119,12 +119,12 @@ services:
     your-service:
         labels:
             - "traefik.enable=true"
-            - "traefik.blumilk.environment=true"
+            - "traefik.vama.environment=true"
             # HTTP
-            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-http-router.entrypoints=web"         
             # HTTPS
-            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-https-router.entrypoints=websecure"
             - "traefik.http.routers.NAME-https-router.tls=true"  
 ```
@@ -137,14 +137,14 @@ services:
     your-service:
         labels:
             - "traefik.enable=true"
-            - "traefik.blumilk.environment=true"
+            - "traefik.vama.environment=true"
             # HTTP
-            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-http-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-http-router.entrypoints=web"
             # MIDDLEWARES
             - "traefik.http.routers.NAME-http-router.middlewares=https-redirect@file"
             # HTTPS
-            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.blumilk.localhost`)"
+            - "traefik.http.routers.NAME-https-router.rule=Host(`DOMAIN.vama.localhost`)"
             - "traefik.http.routers.NAME-https-router.entrypoints=websecure"
             - "traefik.http.routers.NAME-https-router.tls=true"        
 ```

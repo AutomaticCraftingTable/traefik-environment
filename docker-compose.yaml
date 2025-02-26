@@ -1,7 +1,7 @@
 version: "3.8"
 
 networks:
-  traefik-proxy-blumilk-local:
+  traefik-proxy-vama-local:
     external: true
 
 services:
@@ -10,9 +10,9 @@ services:
     container_name: traefik-whoami-container
     labels:
       - "traefik.enable=true"
-      - "traefik.blumilk.environment=true"
+      - "traefik.vama.environment=true"
       # HTTP
-      - "traefik.http.routers.whoami-http-router.rule=Host(`whoami.blumilk.localhost`)"
+      - "traefik.http.routers.whoami-http-router.rule=Host(`whoami.vama.localhost`)"
       - "traefik.http.routers.whoami-http-router.entrypoints=web"
     networks:
-      - traefik-proxy-blumilk-local
+      - traefik-proxy-vama-local
