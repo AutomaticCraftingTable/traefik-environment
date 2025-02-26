@@ -14,11 +14,5 @@ services:
       # HTTP
       - "traefik.http.routers.whoami-http-router.rule=Host(`whoami.blumilk.localhost`)"
       - "traefik.http.routers.whoami-http-router.entrypoints=web"
-      # MIDDLEWARES
-#      - "traefik.http.routers.whoami-http-router.middlewares=https-redirect@file"
-      # HTTPS
-      - "traefik.http.routers.whoami-https-router.rule=Host(`whoami.blumilk.localhost`)"
-      - "traefik.http.routers.whoami-https-router.entrypoints=websecure"
-      - "traefik.http.routers.whoami-https-router.tls=true"
     networks:
       - traefik-proxy-blumilk-local

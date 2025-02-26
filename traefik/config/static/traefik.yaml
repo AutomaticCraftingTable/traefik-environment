@@ -9,10 +9,6 @@ entryPoints:
     web:
         address: ":80"
 
-    websecure:
-        address: ":443"
-        http3: {}
-
 api:
     insecure: false
     dashboard: true
