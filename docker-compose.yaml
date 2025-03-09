@@ -10,7 +10,6 @@ services:
     container_name: traefik-whoami-container
     labels:
       - "traefik.enable=true"
-      - "traefik.vama.environment=true"
       # HTTP
       - "traefik.http.routers.whoami-http-router.rule=Host(`whoami.vama.localhost`)"
       - "traefik.http.routers.whoami-http-router.entrypoints=web"
